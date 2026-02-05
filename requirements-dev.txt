@@ -1,0 +1,6 @@
+# Development dependencies (optional)
+httpx==0.26.0          # For testing API
+pytest==7.4.3          # Testing framework
+pytest-asyncio==0.21.1 # Async testing support
+black==23.12.1         # Code formatting
+flake8==7.0.0          # Code linting
