@@ -2,15 +2,14 @@ services:
   - type: web
     name: hrms-lite-api
     env: python
-    region: oregon
+    runtime: python
     plan: free
-    branch: main
-    buildCommand: pip install -r requirements.txt
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
-      - key: PYTHON_VERSION
-        value: 3.12.0
       - key: MONGODB_URL
         value: mongodb+srv://rastogishubham216_db_user:Mt4B0HKDYXwMPs3T@clusterhrms.blkdkyw.mongodb.net/?retryWrites=true&w=majority&appName=Clusterhrms
       - key: DATABASE_NAME
         value: hrms_lite_db
+      - key: PORT
+        value: 10000
