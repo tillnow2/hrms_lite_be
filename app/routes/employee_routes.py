@@ -22,7 +22,7 @@ def employee_helper(employee) -> dict:
     }
 
 @router.get("/employees", response_model=List[EmployeeResponse])
-async def get_all_employees():
+async def get_all_employees(response: Response):
     response.headers["Cache-Control"] = "max-age=120, public"
     try:
         db = get_database()
