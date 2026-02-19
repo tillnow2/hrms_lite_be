@@ -4,7 +4,7 @@ from fastapi.exceptions import RequestValidationError
 from starlette.exceptions import HTTPException as StarletteHTTPException
 from contextlib import asynccontextmanager
 from app.config.database import connect_db, close_db
-from app.routes import employee_routes, attendance_routes, dashboard_routes
+from app.routes import employee_routes, attendance_routes, dashboard_routes, chatbot_routes
 from app.utils.exception_handlers import (
     validation_exception_handler,
     http_exception_handler,
@@ -63,3 +63,4 @@ async def health_check():
 app.include_router(employee_routes.router, prefix="/api", tags=["Employees"])
 app.include_router(attendance_routes.router, prefix="/api", tags=["Attendance"])
 app.include_router(dashboard_routes.router, prefix="/api", tags=["Dashboard"])
+app.include_router(chatbot_routes.router, prefix="/api", tags=["AI"])
